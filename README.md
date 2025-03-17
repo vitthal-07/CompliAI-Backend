@@ -12,13 +12,13 @@ This is the backend repository for the Compli AI.
 1. Clone the repository:
 
 ```bash
-   git clone https://github.com/vitthal-07/CompliAI.git
+   git clone https://github.com/vitthal-07/CompliAI-Backend.git
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-   cd contract-farming-backend
+   cd compliai-backend
 ```
 
 3. Install dependencies:
