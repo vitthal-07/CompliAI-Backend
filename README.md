@@ -1,6 +1,6 @@
 # Compli AI - Backend
 
-This is the backend repository for the Compli AI. 
+This is the backend repository for the Compli AI.
 
 ## Tech Stack
 
