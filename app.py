@@ -6,6 +6,7 @@ import pandas as pd  # for reading Excel/CSV files
 
 from flask import Flask, request, jsonify
 from flask.json.provider import DefaultJSONProvider
+from flask_cors import CORS
 from bson import ObjectId
 from pymongo import MongoClient
 from scipy.sparse import csr_matrix
@@ -20,6 +21,7 @@ class CustomJSONProvider(DefaultJSONProvider):
 
 
 app = Flask(__name__)
+CORS(app)  # Allow all origins
 app.json_provider_class = CustomJSONProvider
 app.json = app.json_provider_class(app)
 
@@ -198,12 +200,6 @@ def check_compliance_for_payload(data: dict) -> dict:
 
     # --- HS Code Check ---
     hscode = data.get("hscode", "")
-    if not hscode:
-        reasons.append("HS code is missing.")
-    else:
-        hs_entry = hsCodesCollection.find_one({"hscode": hscode})
-        if not hs_entry:
-            reasons.append(f"HS code {hscode} not found in records.")
 
     # --- Extract additional compulsory fields ---
     item_name = data.get("item_name", "").strip()
